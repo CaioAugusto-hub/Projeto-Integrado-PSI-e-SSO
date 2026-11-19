@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Delivery</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <h1>Pizzaria Delivery</h1>
+        <p>Catálogo e controle de estoque</p>
+    </header>
+
+    <main>
+
+        <!-- ÁREA DE PESQUISA -->
+        <section class="pesquisa">
+            <input
+                type="text"
+                id="campoPesquisa"
+                placeholder="Pesquisar produto..."
+            >
+        </section>
+
+        <!-- FILTROS -->
+        <section class="filtros">
+
+            <button class="filtro ativo" data-categoria="Todas">
+                Todas
+            </button>
+
+            <button class="filtro" data-categoria="Pizza Tradicional">
+                Tradicionais
+            </button>
+
+            <button class="filtro" data-categoria="Pizza Especial">
+                Especiais
+            </button>
+
+            <button class="filtro" data-categoria="Bebida">
+                Bebidas
+            </button>
+
+            <button class="filtro" data-categoria="Sobremesa">
+                Sobremesas
+            </button>
+
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section id="catalogo" class="catalogo">
+
+            <!--
+                Os cards serão inseridos
+                dinamicamente pelo JavaScript.
+            -->
+
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal oculto">
+
+        <div class="modal-conteudo">
+
+            <button id="fecharModal" class="btn-fechar">
+                X
+            </button>
+
+            <h2 id="modalNome"></h2>
+
+            <img
+                id="modalImagem"
+                src=""
+                alt=""
+            >
+
+            <p id="modalDescricao"></p>
+
+            <p>
+                <strong>Preço:</strong>
+                <span id="modalPreco"></span>
+            </p>
+
+            <p>
+                <strong>Estoque:</strong>
+                <span id="modalEstoque"></span>
+            </p>
+
+            <p>
+                <strong>Categoria:</strong>
+                <span id="modalCategoria"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="./js/catalogo.js"></script>
+
+</body>
+</html>
