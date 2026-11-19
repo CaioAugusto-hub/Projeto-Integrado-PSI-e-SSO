@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* CONTAINER PRINCIPAL */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    background-color: #c62828;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.cabecalho h1 {
+    margin-bottom: 0.5rem;
+}
+
+.cabecalho p {
+    font-size: 1rem;
+}
+
+/* PESQUISA */
+
+.pesquisa {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+#campoPesquisa {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* FILTROS */
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.filtro {
+    border: none;
+    background-color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.filtro:hover {
+    background-color: #c62828;
+    color: white;
+}
+
+.filtro.ativo {
+    background-color: #c62828;
+    color: white;
+}
+
+/* CATÁLOGO */
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding-bottom: 2rem;
+}
+
+/* CARD */
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-conteudo {
+    padding: 1rem;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 8px;
+}
+
+.preco {
+    font-size: 1.2rem;
+    color: #c62828;
+    font-weight: bold;
+}
+
+.disponivel {
+    color: green;
+    font-weight: bold;
+}
+
+.indisponivel {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-detalhes {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+
+    border: none;
+
+    background-color: #c62828;
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.btn-detalhes:hover {
+    background-color: #a81f1f;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0,0,0,0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+.oculto {
+    display: none;
+}
+
+.modal-conteudo {
+    background-color: white;
+
+    width: 90%;
+    max-width: 600px;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    position: relative;
+}
+
+.modal-conteudo img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin: 15px 0;
+}
+
+.modal-conteudo p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.btn-fechar {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #c62828;
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        padding: 1.5rem;
+    }
+
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
+
+}
