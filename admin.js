@@ -6,6 +6,9 @@ const listaProdutos =
 const formProduto =
     document.getElementById("formProduto");
 
+const idProduto =
+    document.getElementById("idProduto");
+
 async function carregarProdutos() {
 
     try {
@@ -109,6 +112,24 @@ botoesExcluir.forEach(botao => {
 
 });
 
+const botoesEditar =
+    document.querySelectorAll(".editar");
+
+botoesEditar.forEach(botao => {
+
+    botao.addEventListener(
+        "click",
+        () => {
+
+            const id =
+                botao.dataset.id;
+
+            editarProduto(id);
+
+        }
+    );
+
+});
 }
 
 async function excluirProduto(id) {
@@ -150,6 +171,55 @@ async function excluirProduto(id) {
 
 }
 
+async function editarProduto(id) {
+
+    try {
+
+        const resposta =
+            await fetch(`${URL_API}/${id}`);
+
+        if (!resposta.ok) {
+            throw new Error(
+                "Erro ao carregar produto."
+            );
+        }
+
+        const produto =
+            await resposta.json();
+
+        idProduto.value =
+            produto.id;
+
+        document.getElementById("nome").value =
+            produto.nome;
+
+        document.getElementById("categoria").value =
+            produto.categoria;
+
+        document.getElementById("descricao").value =
+            produto.descricao;
+
+        document.getElementById("preco").value =
+            produto.preco;
+
+        document.getElementById("estoque").value =
+            produto.estoque;
+
+        document.getElementById("imagem").value =
+            produto.imagem;
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert(
+            "Não foi possível carregar o produto."
+        );
+
+    }
+
+}
+
 async function cadastrarProduto(event) {
 
     event.preventDefault();
@@ -185,12 +255,24 @@ async function cadastrarProduto(event) {
         imagem
     };
 
+    const id = idProduto.value;
+
+    const url =
+    id
+        ? `${URL_API}/${id}`
+        : URL_API;
+
+    const metodo =
+    id
+        ? "PATCH"
+        : "POST";
+
     try {
 
         const resposta = await fetch(
-            URL_API,
+    url,
             {
-                method: "POST",
+                method: metodo,
                 headers: {
                     "Content-Type":
                         "application/json"
@@ -208,6 +290,8 @@ async function cadastrarProduto(event) {
         }
 
         formProduto.reset();
+
+        idProduto.value = "";
 
         carregarProdutos();
 
