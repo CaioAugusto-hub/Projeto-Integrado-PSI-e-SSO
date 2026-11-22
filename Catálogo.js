@@ -7,6 +7,9 @@ console.log(URL_API);
 
 const catalogo = document.getElementById("catalogo");
 
+const campoPesquisa =
+    document.getElementById("campoPesquisa");
+
 const modal = document.getElementById("modal");
 
 const modalNome =
@@ -135,6 +138,24 @@ function exibirProdutos(produtos) {
 
 }
 
+function pesquisarProdutos() {
+
+    const textoDigitado =
+        campoPesquisa.value.toLowerCase();
+
+    const produtosFiltrados =
+        produtosCarregados.filter(produto => {
+
+            return produto.nome
+                .toLowerCase()
+                .includes(textoDigitado);
+
+        });
+
+    exibirProdutos(produtosFiltrados);
+
+}
+
 function abrirModal(idProduto) {
 
     const produto = produtosCarregados.find(
@@ -174,6 +195,11 @@ fecharModal.addEventListener(
     () => {
         modal.classList.add("oculto");
     }
+);
+
+campoPesquisa.addEventListener(
+    "input",
+    pesquisarProdutos
 );
 
 /**
