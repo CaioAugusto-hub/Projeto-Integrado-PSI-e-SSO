@@ -44,6 +44,15 @@
       "preco": 18.9,
       "estoque": 0,
       "imagem": "https://res.cloudinary.com/j7wu8nhf/image/upload/f_auto/q_auto/imagem_2026-11-19_194115327.png"
+    },
+    {
+      "nome": "Pizza de catupiry",
+      "categoria": "Pizza Tradicional",
+      "descricao": "Pizza que contém frango desfiado, catupiry e azeitonas",
+      "preco": 55,
+      "estoque": 5,
+      "imagem": "https://res.cloudinary.com/j7wu8nhf/image/upload/f_auto/q_auto/imagem_2026-11-22_200814283.png",
+      "id": "OjVtMhvnn5g"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
