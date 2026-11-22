@@ -1,6 +1,34 @@
+let produtosCarregados = [];
+
 const URL_API = "http://localhost:3000/produtos";
 
+console.log("catalogo.js carregado");
+console.log(URL_API);
+
 const catalogo = document.getElementById("catalogo");
+
+const modal = document.getElementById("modal");
+
+const modalNome =
+    document.getElementById("modalNome");
+
+const modalImagem =
+    document.getElementById("modalImagem");
+
+const modalDescricao =
+    document.getElementById("modalDescricao");
+
+const modalPreco =
+    document.getElementById("modalPreco");
+
+const modalEstoque =
+    document.getElementById("modalEstoque");
+
+const modalCategoria =
+    document.getElementById("modalCategoria");
+
+const fecharModal =
+    document.getElementById("fecharModal");
 
 /**
  * Busca os produtos da API
@@ -14,6 +42,8 @@ async function carregarProdutos() {
         }
 
         const produtos = await resposta.json();
+
+        produtosCarregados = produtos;
 
         exibirProdutos(produtos);
 
@@ -77,13 +107,76 @@ function exibirProdutos(produtos) {
             </div>
         `;
 
-        catalogo.insertAdjacentHTML("beforeend", card);
+        catalogo.insertAdjacentHTML(
+            "beforeend",
+            card
+        );
+
+    });
+
+    const botoesDetalhes =
+        document.querySelectorAll(".btn-detalhes");
+
+    botoesDetalhes.forEach(botao => {
+
+        botao.addEventListener(
+            "click",
+            () => {
+
+                const idProduto =
+                    botao.dataset.id;
+
+                abrirModal(idProduto);
+
+            }
+        );
 
     });
 
 }
 
+function abrirModal(idProduto) {
+
+    const produto = produtosCarregados.find(
+        item => item.id == idProduto
+    );
+
+    if (!produto) return;
+
+    modalNome.textContent =
+        produto.nome;
+
+    modalImagem.src =
+        produto.imagem;
+
+    modalImagem.alt =
+        produto.nome;
+
+    modalDescricao.textContent =
+        produto.descricao;
+
+    modalPreco.textContent =
+        `R$ ${produto.preco
+            .toFixed(2)
+            .replace(".", ",")}`;
+
+    modalEstoque.textContent =
+        produto.estoque;
+
+    modalCategoria.textContent =
+        produto.categoria;
+
+    modal.classList.remove("oculto");
+}
+
+fecharModal.addEventListener(
+    "click",
+    () => {
+        modal.classList.add("oculto");
+    }
+);
+
 /**
  * Inicializa a aplicação
  */
-carregarProdutos();
+carregarProdutos(); 
