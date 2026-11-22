@@ -87,6 +87,63 @@ function exibirProdutos(produtos) {
         );
 
     });
+    const botoesExcluir =
+    document.querySelectorAll(".excluir");
+
+botoesExcluir.forEach(botao => {
+
+    botao.addEventListener(
+        "click",
+        () => {
+
+            const id =
+                botao.dataset.id;
+
+            excluirProduto(id);
+
+        }
+    );
+
+});
+
+}
+
+async function excluirProduto(id) {
+
+    const confirmar = confirm(
+        "Deseja realmente excluir este produto?"
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+
+        const resposta = await fetch(
+            `${URL_API}/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        if (!resposta.ok) {
+            throw new Error(
+                "Erro ao excluir produto."
+            );
+        }
+
+        carregarProdutos();
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert(
+            "Não foi possível excluir o produto."
+        );
+
+    }
 
 }
 
