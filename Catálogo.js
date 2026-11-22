@@ -10,6 +10,9 @@ const catalogo = document.getElementById("catalogo");
 const campoPesquisa =
     document.getElementById("campoPesquisa");
 
+const filtros =
+    document.querySelectorAll(".filtro");
+
 const modal = document.getElementById("modal");
 
 const modalNome =
@@ -156,6 +159,26 @@ function pesquisarProdutos() {
 
 }
 
+function filtrarCategoria(categoria) {
+
+    if (categoria === "Todas") {
+
+        exibirProdutos(produtosCarregados);
+
+        return;
+    }
+
+    const produtosFiltrados =
+        produtosCarregados.filter(produto => {
+
+            return produto.categoria === categoria;
+
+        });
+
+    exibirProdutos(produtosFiltrados);
+
+}
+
 function abrirModal(idProduto) {
 
     const produto = produtosCarregados.find(
@@ -201,6 +224,28 @@ campoPesquisa.addEventListener(
     "input",
     pesquisarProdutos
 );
+
+filtros.forEach(botao => {
+
+    botao.addEventListener(
+        "click",
+        () => {
+
+            filtros.forEach(item => {
+                item.classList.remove("ativo");
+            });
+
+            botao.classList.add("ativo");
+
+            const categoria =
+                botao.dataset.categoria;
+
+            filtrarCategoria(categoria);
+
+        }
+    );
+
+});
 
 /**
  * Inicializa a aplicação
