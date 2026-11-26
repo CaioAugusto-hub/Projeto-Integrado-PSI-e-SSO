@@ -240,4 +240,28 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .btn-admin {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    background-color: white;
+
+    color: #c62828;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+.btn-admin:hover {
+    background-color: #f1f1f1;
+}
+
 }
