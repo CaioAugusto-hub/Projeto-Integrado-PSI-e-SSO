@@ -1,5 +1,5 @@
 const URL_API =
-"https://projeto-integrado-psi-e-sso.onrender.com/";
+"https://projeto-integrado-psi-e-sso.onrender.com/produtos";
 
 const listaProdutos =
     document.getElementById("listaProdutos");

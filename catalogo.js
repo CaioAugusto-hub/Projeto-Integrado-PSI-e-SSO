@@ -1,7 +1,7 @@
 let produtosCarregados = [];
 
 const URL_API =
-"https://projeto-integrado-psi-e-sso.onrender.com/";
+"https://projeto-integrado-psi-e-sso.onrender.com/produtos";
 
 console.log("catalogo.js carregado");
 console.log(URL_API);
