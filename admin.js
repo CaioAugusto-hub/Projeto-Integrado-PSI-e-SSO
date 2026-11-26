@@ -1,4 +1,4 @@
-const URL_API = "https://obscure-goggles-x5qxwj966996f977x-3000.app.github.dev/produtos";
+const URL_API = "https://obscure-goggles-x5qxwj966996f977x-3000.app.github.dev/";
 
 const listaProdutos =
     document.getElementById("listaProdutos");
