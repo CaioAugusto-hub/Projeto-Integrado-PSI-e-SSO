@@ -1,7 +1,7 @@
 let produtosCarregados = [];
 
 const URL_API =
-"https://obscure-goggles-x5qxwj966996f977x-3000.app.github.dev/produtos";
+"https://projeto-integrado-psi-e-sso.onrender.com/";
 
 console.log("catalogo.js carregado");
 console.log(URL_API);
