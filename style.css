@@ -243,11 +243,11 @@ body {
     .btn-admin {
     display: inline-block;
 
-    margin-top: 15px;
+    margin-top: 20px;
 
-    padding: 10px 20px;
+    padding: 12px 25px;
 
-    background-color: white;
+    background-color: #ffffff;
 
     color: #c62828;
 
@@ -255,13 +255,25 @@ body {
 
     font-weight: bold;
 
-    border-radius: 6px;
+    font-size: 1rem;
 
-    transition: 0.3s;
+    border-radius: 30px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    transition: all 0.3s ease;
 }
 
 .btn-admin:hover {
-    background-color: #f1f1f1;
+    background-color: #ffe5e5;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-admin:active {
+    transform: translateY(0);
 }
 
 }
