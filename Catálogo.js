@@ -1,6 +1,6 @@
 let produtosCarregados = [];
 
-const URL_API = "http://localhost:3000/produtos";
+const URL_API = "https://obscure-goggles-x5qxwj966996f977x-3000.app.github.dev/produtos";
 
 console.log("catalogo.js carregado");
 console.log(URL_API);
